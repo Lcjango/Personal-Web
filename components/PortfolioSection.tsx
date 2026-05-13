@@ -68,7 +68,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
   ];
   
   const availableCategories = preferredOrder.filter(cat => 
-    currentProjects.some(p => p.category === cat) || cat === Category.DEV
+    currentProjects.some(p => p.category === cat) || cat === Category.DEV || cat === Category.AI_MODEL
   );
   
   const categories = ['All', ...availableCategories];
