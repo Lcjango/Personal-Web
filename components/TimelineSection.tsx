@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { EDUCATION_DATA } from '../src/data/education';
 import { Language } from '../types';
-import { ArrowUpRight, X, Hourglass } from 'lucide-react';
+import { ArrowUpRight, X, Hourglass, GraduationCap } from 'lucide-react';
 
 interface TimelineSectionProps {
   language: Language;
