@@ -50,7 +50,15 @@ function App() {
   const scrollPositionRef = useRef<number>(0);
 
   useEffect(() => {
-    setTheme('light');
+    const now = new Date();
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+    const currentTimeInMinutes = hour * 60 + minutes;
+    const darkStartTimeInMinutes = 18 * 60 + 30;
+    const darkEndTimeInMinutes = 6 * 60;
+    
+    const isDarkTime = currentTimeInMinutes >= darkStartTimeInMinutes || currentTimeInMinutes < darkEndTimeInMinutes;
+    setTheme(isDarkTime ? 'dark' : 'light');
   }, []);
 
   useEffect(() => {
