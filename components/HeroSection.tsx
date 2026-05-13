@@ -33,6 +33,36 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onCategory
   };
 
   const renderHeadlineText = (item: any, index: number) => {
+    // If item has parts, render them as clickable segments
+    if (item.parts && item.parts.length > 0) {
+      return (
+        <h1 className={`
+          ${language === 'en' ? 'text-[8vw] lg:text-[6vw]' : 'text-[14vw] lg:text-[8vw]'} 
+          font-black tracking-tighter leading-tight text-black dark:text-white transition-all duration-300 whitespace-nowrap overflow-visible
+        `}>
+          {item.parts.map((part: any, pIndex: number) => (
+            <span 
+              key={pIndex}
+              className={`${part.category ? 'hover:opacity-70 cursor-pointer transition-opacity' : 'cursor-default'}`}
+              onClick={(e) => {
+                if (part.category) {
+                  e.stopPropagation();
+                  handleHeadlineClick(part.category);
+                }
+              }}
+            >
+              {part.text}
+            </span>
+          ))}
+          {/* Annotation */}
+          <span className="text-[0.3em] align-middle ml-2 lg:ml-4 text-gray-400 font-bold tracking-normal inline-block transform translate-y-[-0.1em]">
+            {item.annotation}
+          </span>
+        </h1>
+      );
+    }
+
+    // Default rendering for items without parts
     return (
       <h1 className={`
         ${language === 'en' ? 'text-[8vw] lg:text-[6vw]' : 'text-[14vw] lg:text-[8vw]'} 
