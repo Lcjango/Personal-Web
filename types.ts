@@ -7,6 +7,7 @@ export enum Category {
   DESIGN = 'Graphics & UI',
   PHOTO = 'Photography',
   DEV = 'Development',
+  NEW_MEDIA = 'New Media Operations',
   ARTICLE = 'Article'
 }
 

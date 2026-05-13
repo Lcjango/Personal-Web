@@ -16,7 +16,7 @@ export interface HomeContent {
 export const HOME_DATA: Record<Language, HomeContent> = {
   zh: {
     heroItems: [
-      { text: "新媒体运营", annotation: "（作品积累较多）", category: Category.VIDEO },
+      { text: "新媒体运营", annotation: "（作品积累较多）", category: Category.NEW_MEDIA },
       { text: "平面交互", annotation: "（有兴趣，有审美）", category: Category.DESIGN },
       { text: "工具开发", annotation: "（vibe builder）", category: Category.DEV },
       { text: "炒粉炒饭", annotation: "（还在学）", category: null }
@@ -27,7 +27,7 @@ export const HOME_DATA: Record<Language, HomeContent> = {
   },
   en: {
     heroItems: [
-      { text: "New Media Operations", annotation: "(Extensive Portfolio)", category: Category.VIDEO },
+      { text: "New Media Operations", annotation: "(Extensive Portfolio)", category: Category.NEW_MEDIA },
       { text: "Graphic & UI", annotation: "(Passion & Aesthetic)", category: Category.DESIGN },
       { text: "Development", annotation: "(Vibe Builder)", category: Category.DEV },
       { text: "Cooking", annotation: "(Still Learning)", category: null }

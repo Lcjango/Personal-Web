@@ -62,6 +62,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
     Category.PHOTO,
     Category.VIDEO,
     Category.DESIGN,
+    Category.NEW_MEDIA,
     Category.DEV
   ];
   
