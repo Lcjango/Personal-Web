@@ -36,7 +36,7 @@ export const CONTACT_DATA: Record<Language, ContactContent> = {
       bilibili: "LuN3cy",
       px500: "LuN3cy"
     },
-    tooltip: "还是想念武汉，但感觉之后可能也留在广深",
+    tooltip: "坚持下去、放弃幻想、准备斗争。",
     githubLabel: "GitHub",
     footerDesign: "Designed & Built by LuN3cy、lcjango"
   },
@@ -54,7 +54,7 @@ export const CONTACT_DATA: Record<Language, ContactContent> = {
       bilibili: "LuN3cy",
       px500: "LuN3cy"
     },
-    tooltip: "Still miss Wuhan, but likely to stay in Guangzhou-Shenzhen",
+    tooltip: "Keep going, abandon illusions, prepare for struggle.",
     githubLabel: "GitHub",
     footerDesign: "Designed & Built by LuN3cy、lcjango"
   }
