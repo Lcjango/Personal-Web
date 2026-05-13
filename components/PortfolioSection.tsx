@@ -204,7 +204,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                // STANDARD CARD LAYOUT
                <>
                   {/* Image container */}
-                  <div className="w-full aspect-[4/3] bg-gray-100 dark:bg-gray-800 mb-6 overflow-hidden rounded-2xl relative shadow-none border border-transparent transition-all duration-500 group-hover:shadow-2xl dark:group-hover:shadow-none dark:group-hover:border-white/20 transform-gpu">
+                  <div className="w-full aspect-[3/2] bg-gray-100 dark:bg-gray-800 mb-6 overflow-hidden rounded-2xl relative shadow-none border border-transparent transition-all duration-500 group-hover:shadow-2xl dark:group-hover:shadow-none dark:group-hover:border-white/20 transform-gpu">
                     {project.image && !project.image.includes('picsum') ? (
                         <img 
                           src={project.image} 

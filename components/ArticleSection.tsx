@@ -103,7 +103,7 @@ export const ArticleSection: React.FC<ArticleSectionProps> = ({ language }) => {
                 <div className="flex flex-col md:flex-row bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden p-2 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 items-stretch h-auto">
                     
                     {/* Cover Image Container - Responsive aspect ratio 900:383 */}
-                    <div className="w-full md:w-[45%] aspect-[900/383] shrink-0 rounded-xl overflow-hidden relative bg-gray-100 dark:bg-gray-900 transform-gpu">
+                    <div className="w-full md:w-[45%] aspect-video shrink-0 rounded-xl overflow-hidden relative bg-gray-100 dark:bg-gray-900 transform-gpu">
                         {article.coverImage ? (
                              <img 
                              src={article.coverImage} 
