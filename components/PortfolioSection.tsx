@@ -52,6 +52,32 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
+  // Click tracking state
+  const [clickCounts, setClickCounts] = useState<Record<string, number>>({});
+
+  // Load click counts from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem('projectClickCounts');
+    if (stored) {
+      try {
+        setClickCounts(JSON.parse(stored));
+      } catch (e) {
+        console.error('Failed to parse click counts');
+      }
+    }
+  }, []);
+
+  // Handle project click - increment click count
+  const handleProjectClick = (project: Project) => {
+    const newCounts = {
+      ...clickCounts,
+      [project.id]: (clickCounts[project.id] || 0) + 1
+    };
+    setClickCounts(newCounts);
+    localStorage.setItem('projectClickCounts', JSON.stringify(newCounts));
+    setSelectedProject(project);
+  };
+
   // Sync with external filter if provided
   useEffect(() => {
     if (externalFilter) {
@@ -80,11 +106,18 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
     ? currentProjects 
     : currentProjects.filter(p => p.category === filter);
 
+  // Calculate effective popularity (base popularity + click count)
+  const getEffectivePopularity = (project: Project) => {
+    const basePopularity = project.popularity || 0;
+    const clicks = clickCounts[project.id] || 0;
+    return basePopularity + clicks * 2; // Each click adds 2 to popularity
+  };
+
   // Sorting logic
   const sortedProjects = [...filteredProjects].sort((a, b) => {
     switch (sortBy) {
       case 'popularity':
-        return (b.popularity || 0) - (a.popularity || 0);
+        return getEffectivePopularity(b) - getEffectivePopularity(a);
       case 'date':
         const dateA = a.date || '2000-01-01';
         const dateB = b.date || '2000-01-01';
@@ -226,7 +259,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
           <div 
             key={project.id} 
             className={`group cursor-pointer flex flex-col h-full transform-gpu ${project.category === Category.DEV ? 'bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-2 transition-all duration-300' : ''}`}
-            onClick={() => setSelectedProject(project)}
+            onClick={() => handleProjectClick(project)}
           >
             
             {project.category === Category.DEV ? (
