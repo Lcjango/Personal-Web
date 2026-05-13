@@ -6,19 +6,21 @@ import { ARTICLE_DATA } from './src/data/articles';
 export const CATEGORY_LABELS: Record<Language, Record<string, string>> = {
   zh: {
     'All': '全部',
-    'Videography': '动态影像', // Renamed
+    'New Media Operations': '新媒体运营',
     'Graphics & UI': '平面交互',
-    'Photography': '静态摄影', // Renamed
     'Development': '应用开发',
-    'New Media Operations': '新媒体运营'
+    'Photography': '静态摄影',
+    'Videography': '动态影像',
+    'AI Model': 'AI模型'
   },
   en: {
     'All': 'All',
-    'Videography': 'Videography',
+    'New Media Operations': 'New Media Operations',
     'Graphics & UI': 'Graphics & UI',
-    'Photography': 'Photography',
     'Development': 'Development',
-    'New Media Operations': 'New Media Operations'
+    'Photography': 'Photography',
+    'Videography': 'Videography',
+    'AI Model': 'AI Model'
   }
 };
 

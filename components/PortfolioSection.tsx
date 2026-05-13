@@ -59,11 +59,12 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
   // Get Categories in preferred order
   const currentProjects = PROJECTS[language];
   const preferredOrder = [
+    Category.NEW_MEDIA,
+    Category.DESIGN,
+    Category.DEV,
     Category.PHOTO,
     Category.VIDEO,
-    Category.DESIGN,
-    Category.NEW_MEDIA,
-    Category.DEV
+    Category.AI_MODEL
   ];
   
   const availableCategories = preferredOrder.filter(cat => 
