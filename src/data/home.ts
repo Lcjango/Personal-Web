@@ -31,8 +31,8 @@ export const HOME_DATA: Record<Language, HomeContent> = {
           { text: "图文", category: Category.DESIGN }
         ]
       },
-      { text: "AI模型", annotation: "（有兴趣，有审美）", category: Category.AI_MODEL },
-      { text: "应用开发", annotation: "（vibe builder）", category: Category.DEV },
+      { text: "AI模型", annotation: "（学习中，来交流）", category: Category.AI_MODEL },
+      { text: "应用开发", annotation: "（发现问题，解决问题）", category: Category.DEV },
       { text: "炒粉炒饭", annotation: "（还在学）", category: null }
     ],
     intro: "我渴的时候喝很多水。",
@@ -50,8 +50,8 @@ export const HOME_DATA: Record<Language, HomeContent> = {
           { text: "Content", category: Category.DESIGN }
         ]
       },
-      { text: "AI Models", annotation: "(Passion & Aesthetic)", category: Category.AI_MODEL },
-      { text: "Application Development", annotation: "(Vibe Builder)", category: Category.DEV },
+      { text: "AI Models", annotation: "(Learning & Sharing)", category: Category.AI_MODEL },
+      { text: "Application Development", annotation: "(Problem Solving)", category: Category.DEV },
       { text: "Cooking", annotation: "(Still Learning)", category: null }
     ],
     intro: "I drink a lot of water when I'm thirsty.",
