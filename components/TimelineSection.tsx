@@ -56,7 +56,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ language }) =>
 
   const handleUnlockSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (inputAnswer.trim() === '康') {
+    if (inputAnswer.trim() === '江') {
       setIsSuccess(true);
       decryptPayload(inputAnswer.trim());
       // 1. Show Green Success State
