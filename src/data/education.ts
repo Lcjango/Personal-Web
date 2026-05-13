@@ -36,7 +36,7 @@ export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
         id: '2',
         year: '2025 - 至今',
         title: '自由创作者',
-        institution: '珠海',
+        institution: '深圳',
         description: '专注于摄影摄像、平面交互设计与工具开发，以 vibe coding 的方式持续构建个人项目。',
         type: 'work'
       }
@@ -78,7 +78,7 @@ export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
         id: '2',
         year: '2025 - Present',
         title: 'Freelance Creator',
-        institution: 'Zhuhai',
+        institution: 'Shenzhen',
         description: 'Focusing on photography, videography, graphic/UI design, and tool development. Continuously building personal projects through vibe coding.',
         type: 'work'
       }
