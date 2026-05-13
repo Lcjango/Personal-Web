@@ -192,7 +192,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ language }) =>
               <h2 className="text-5xl md:text-6xl lg:text-8xl font-black mb-6 md:mb-8 leading-none text-black dark:text-white transition-colors duration-300">
                 {content.title}
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 md:mb-12 font-medium transition-colors duration-300 max-w-xl">
+              <p className="text-gray-500 dark:text-gray-400 text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 md:mb-12 font-medium transition-colors duration-300 max-w-xl text-justify">
                 {content.about}
               </p>
 
@@ -227,7 +227,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ language }) =>
                   {exp.title}
                 </div>
 
-                <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-3xl font-medium transition-colors">
+                <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-3xl font-medium transition-colors text-justify">
                   {exp.description}
                 </p>
 
@@ -278,7 +278,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ language }) =>
                   {exp.title}
                 </div>
 
-                <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-3xl font-medium transition-colors">
+                <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-3xl font-medium transition-colors text-justify">
                   {exp.description}
                 </p>
 
