@@ -88,3 +88,30 @@ export interface HonorsData {
   titles: string[];
   competitions: CompetitionGroup[];
 }
+
+export interface WorkExperience {
+  id: string;
+  period: string;
+  title: string;
+  institution: string;
+  description: string;
+}
+
+export interface Honor {
+  title: string;
+  year: string;
+}
+
+export interface Skill {
+  id: string;
+  category: string;
+  items: string[];
+}
+
+export interface EducationBackground {
+  id: string;
+  period: string;
+  degree: string;
+  institution: string;
+  major: string;
+}
