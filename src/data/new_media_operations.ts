@@ -56,5 +56,61 @@ export const NEW_MEDIA_DATA: Project[] = [
       concept: "Using more intuitive and vivid short videos to help users quickly understand vehicle administration procedures and traffic safety knowledge.",
       roleDetail: "Responsible for short video planning, shooting guidance, post-production, account operation and data analysis."
     }
+  },
+  {
+    id: 'new-media-3',
+    common: {
+      category: 'New Media Operations',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=900&fit=crop',
+      externalLink: '#'
+    },
+    zh: {
+      title: '品牌小红书运营',
+      subtitle: '小红书运营',
+      description: '负责多个品牌的小红书账号运营，打造爆款内容，提升品牌曝光度和粉丝互动。',
+      role: '运营负责人',
+      tags: ['小红书', '品牌运营', '内容策划'],
+      awards: [],
+      concept: "深耕小红书平台算法，打造符合平台调性的优质内容，实现品牌价值最大化。",
+      roleDetail: "账号定位、内容策划、文案撰写、粉丝互动、数据分析与投放优化。"
+    },
+    en: {
+      title: 'Xiaohongshu Brand Operation',
+      subtitle: 'Xiaohongshu Account',
+      description: 'Responsible for operating multiple brand accounts on Xiaohongshu, creating viral content to increase brand exposure and fan engagement.',
+      role: 'Operations Lead',
+      tags: ['Xiaohongshu', 'Brand', 'Content Strategy'],
+      awards: [],
+      concept: "Deep understanding of Xiaohongshu algorithm, creating platform-specific content to maximize brand value.",
+      roleDetail: "Account positioning, content planning, copywriting, fan interaction, data analysis and optimization."
+    }
+  },
+  {
+    id: 'new-media-4',
+    common: {
+      category: 'New Media Operations',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1200&h=900&fit=crop',
+      externalLink: '#'
+    },
+    zh: {
+      title: '企业微信公众号矩阵',
+      subtitle: '公众号矩阵',
+      description: '搭建企业微信公众号矩阵体系，实现多账号协同运营，提升整体传播效果。',
+      role: '运营经理',
+      tags: ['公众号', '矩阵运营', '企业服务'],
+      awards: [],
+      concept: "通过矩阵化运营策略，实现内容的精准分发和用户的精细化管理。",
+      roleDetail: "矩阵规划、账号搭建、内容矩阵设计、跨账号联动运营。"
+    },
+    en: {
+      title: 'WeChat Official Account Matrix',
+      subtitle: 'Account Matrix',
+      description: 'Building a WeChat official account matrix system for enterprises, achieving multi-account collaborative operation to enhance overall communication effectiveness.',
+      role: 'Operations Manager',
+      tags: ['WeChat', 'Matrix', 'Enterprise'],
+      awards: [],
+      concept: "Through matrix operation strategy, achieving precise content distribution and refined user management.",
+      roleDetail: "Matrix planning, account setup, content matrix design, cross-account linkage operation."
+    }
   }
 ];

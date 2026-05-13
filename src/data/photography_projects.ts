@@ -97,5 +97,37 @@ export const PHOTOGRAPHY_PROJECTS: Project[] = [
       concept: "Exploring how space influences human emotions and behavior, presenting the beauty of architecture through photography.",
       roleDetail: "Architectural space photography and post-processing."
     }
+  },
+  {
+    id: 'photo-4',
+    common: {
+      category: 'Photography',
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1200&h=900&fit=crop',
+      gallery: [
+        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop'
+      ]
+    },
+    zh: {
+      title: '人像',
+      subtitle: '静态摄影',
+      description: '捕捉人物的情感与个性，通过光影与构图展现人物独特的魅力。',
+      role: '摄影师',
+      tags: ['人像', '肖像', '光影'],
+      awards: [],
+      concept: "通过镜头展现人物的内在情感与外在气质，创造有故事感的人像作品。",
+      roleDetail: "人像摄影、灯光布置与后期处理。"
+    },
+    en: {
+      title: 'Portrait',
+      subtitle: 'Photography',
+      description: 'Capturing human emotions and personalities, showcasing unique charm through lighting and composition.',
+      role: 'Photographer',
+      tags: ['Portrait', 'People', 'Lighting'],
+      awards: [],
+      concept: "Expressing inner emotions and outer temperament through the lens, creating storytelling portrait works.",
+      roleDetail: "Portrait photography, lighting setup and post-processing."
+    }
   }
 ];
