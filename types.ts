@@ -57,6 +57,10 @@ export interface Project {
   websiteUrl?: string; // Online preview URL
   githubUrl?: string; // GitHub repository URL
   icon?: string; // Icon name for Dev projects
+  
+  // Sorting fields
+  popularity?: number; // 热度值 (0-100)
+  date?: string; // 日期 (YYYY-MM-DD)
 }
 
 export interface Experience {
