@@ -18,7 +18,7 @@ export interface EducationPageContent {
 export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
   zh: {
     title: "教育经历",
-    about: "从旅游管理到中国语言文学，从传统行业到数字媒体，持续探索跨界融合的可能。以设计思维驱动内容创作，用技术工具赋能创意表达。",
+    about: "从传统行业到数字媒体，持续探索跨界融合的可能。以设计思维驱动内容创作，用技术工具赋能创意表达。",
     openToWork: "边学边做 + 开放合作",
     viewHonorsLabel: "查看在校荣誉",
     honorsTitle: "在校荣誉",
@@ -86,7 +86,7 @@ export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
   },
   en: {
     title: "Education",
-    about: "From Tourism Management to Chinese Language and Literature, from traditional industries to digital media. Continuously exploring the possibilities of cross-disciplinary integration.",
+    about: "From traditional industries to digital media, continuously exploring the possibilities of cross-disciplinary integration.",
     openToWork: "Learning by Doing + Open for Collaboration",
     viewHonorsLabel: "View Honors & Awards",
     honorsTitle: "Honors & Awards",
