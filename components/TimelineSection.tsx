@@ -12,6 +12,7 @@ interface TimelineSectionProps {
 export const TimelineSection: React.FC<TimelineSectionProps> = ({ language }) => {
   const content = EDUCATION_DATA[language];
   const experiences = content.experiences;
+  const workExperiences = content.workExperiences;
   const honors = content.honors;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -245,6 +246,45 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ language }) =>
                  <ArrowUpRight size={20} className="md:w-7 md:h-7" />
               </div>
             </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-24">
+        <div className="lg:col-span-4">
+          <div className="static lg:sticky lg:top-40 flex flex-col h-auto justify-start">
+            <h2 className="text-5xl md:text-6xl lg:text-8xl font-black mb-6 md:mb-8 leading-none text-black dark:text-white transition-colors duration-300">
+              {language === 'zh' ? '工作经历' : 'Work Experience'}
+            </h2>
+          </div>
+        </div>
+
+        <div className="lg:col-span-8 pt-0 lg:pt-8 flex flex-col w-full">
+          <div className="w-full h-[2px] bg-black dark:bg-white mb-8 lg:mb-12 transition-colors duration-300"></div>
+
+          <div className="space-y-12 lg:space-y-16">
+            {workExperiences.map((exp) => (
+              <div key={exp.id} className="group">
+                <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2 md:mb-4">
+                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black dark:text-white transition-colors">
+                     {exp.institution}
+                   </h3>
+                   <span className="font-mono text-gray-400 dark:text-gray-500 font-bold text-base md:text-lg mt-1 md:mt-0 transition-colors">
+                     {exp.year}
+                   </span>
+                </div>
+
+                <div className="text-xl md:text-2xl font-bold text-black dark:text-gray-200 mb-3 md:mb-4 transition-colors">
+                  {exp.title}
+                </div>
+
+                <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-3xl font-medium transition-colors">
+                  {exp.description}
+                </p>
+
+                <div className="w-full h-[2px] bg-gray-100 dark:bg-gray-800 mt-8 md:mt-12 transition-colors duration-500"></div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

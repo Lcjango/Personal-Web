@@ -11,6 +11,7 @@ export interface EducationPageContent {
   scholarshipsLabel: string;
   titlesLabel: string;
   experiences: Experience[];
+  workExperiences: Experience[];
   honors: HonorsData;
 }
 
@@ -32,13 +33,31 @@ export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
         institution: '华中师范大学',
         description: '学习数字媒体技术，涵盖影视制作、交互设计、前端开发等方向。在校期间积极参与各类设计竞赛与影像创作。',
         type: 'education'
-      },
+      }
+    ],
+    workExperiences: [
       {
-        id: '2',
-        year: '2025 - 至今',
+        id: '1',
+        year: '2021 - 2025',
         title: '自由创作者',
         institution: '深圳',
         description: '专注于摄影摄像、平面交互设计与工具开发，以 vibe coding 的方式持续构建个人项目。',
+        type: 'work'
+      },
+      {
+        id: '2',
+        year: '2021.04 - 2024.03',
+        title: '宣传管理岗',
+        institution: '深圳市公安局交通警察局',
+        description: '统筹深圳车管所宣传团队管理与协调工作，负责新媒体平台内容统筹发布、重要文稿编辑、宣传活动策划。',
+        type: 'work'
+      },
+      {
+        id: '3',
+        year: '2018.07 - 2021.03',
+        title: '新媒体主编',
+        institution: '深圳市公安局交通警察局',
+        description: '全面负责深圳车管所微信公众号、抖音、微博、门户网站等外宣平台内容编辑、专题策划、粉丝互动与数据分析。',
         type: 'work'
       }
     ],
@@ -74,13 +93,31 @@ export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
         institution: 'Central China Normal University',
         description: 'Studied digital media technology, covering film production, interaction design, and front-end development. Actively participated in design competitions and video creation.',
         type: 'education'
-      },
+      }
+    ],
+    workExperiences: [
       {
-        id: '2',
-        year: '2025 - Present',
+        id: '1',
+        year: '2021 - 2025',
         title: 'Freelance Creator',
         institution: 'Shenzhen',
         description: 'Focusing on photography, videography, graphic/UI design, and tool development. Continuously building personal projects through vibe coding.',
+        type: 'work'
+      },
+      {
+        id: '2',
+        year: '2021.04 - 2024.03',
+        title: 'Publicity Management',
+        institution: 'Shenzhen Traffic Police Bureau',
+        description: 'Coordinated publicity team management, responsible for new media content planning, document editing, and event planning.',
+        type: 'work'
+      },
+      {
+        id: '3',
+        year: '2018.07 - 2021.03',
+        title: 'New Media Editor-in-Chief',
+        institution: 'Shenzhen Traffic Police Bureau',
+        description: 'Fully responsible for WeChat, Douyin, Weibo, and portal platform content editing, special planning, fan interaction and data analysis.',
         type: 'work'
       }
     ],
