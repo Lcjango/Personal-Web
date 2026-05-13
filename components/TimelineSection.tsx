@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { EDUCATION_DATA } from '../src/data/education';
 import { Language } from '../types';
-import { ArrowUpRight, X, Hourglass, GraduationCap } from 'lucide-react';
+import { ArrowUpRight, X, Hourglass, Book } from 'lucide-react';
 
 interface TimelineSectionProps {
   language: Language;
@@ -251,7 +251,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ language }) =>
 
               <div className="flex items-center gap-4 md:gap-6 mt-4 md:mt-8 bg-gray-50 dark:bg-gray-900 lg:bg-transparent lg:dark:bg-transparent p-4 lg:p-0 rounded-2xl lg:rounded-none">
                  <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shrink-0">
-                    <GraduationCap className="w-6 h-6 md:w-8 md:h-8 text-black dark:text-white" />
+                    <Book className="w-6 h-6 md:w-8 md:h-8 text-black dark:text-white animate-book-open-close" />
                  </div>
                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-black dark:text-white transition-colors leading-tight">
                    {content.openToWork}

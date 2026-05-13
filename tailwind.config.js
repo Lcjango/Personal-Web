@@ -29,6 +29,7 @@ export default {
         'message-pop': 'messagePop 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'message-pop-out': 'messagePopOut 0.3s ease-in forwards',
         'fade-out': 'fadeOut 0.3s ease-in forwards',
+        'book-open-close': 'bookOpenClose 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -47,6 +48,10 @@ export default {
         hourglassFlip: {
           '0%, 80%': { transform: 'rotate(0deg)' }, /* Pause for sand to fall */
           '90%, 100%': { transform: 'rotate(180deg)' } /* Quick Flip */
+        },
+        bookOpenClose: {
+          '0%, 100%': { transform: 'rotateY(0deg)' },
+          '50%': { transform: 'rotateY(180deg)' }
         },
         messagePop: {
           '0%': { 
