@@ -91,6 +91,17 @@ function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   };
+
+  const handleTabChange = (tab: string) => {
+    startViewTransition(() => {
+      // Reset portfolio filter to 'All' when navigating to portfolio page
+      if (tab === 'portfolio') {
+        setPortfolioCategory('All');
+      }
+      setActiveTab(tab);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  };
   
   // -------------------------
   // GRAVITY EXPLOSION LOGIC
@@ -672,9 +683,9 @@ function App() {
       
       <MusicPlayer language={language} />
       {/* Dynamic Navigation */}
-      <Sidebar 
-        activeTab={activeTab} 
-        setActiveTab={(tab) => startViewTransition(() => setActiveTab(tab))} 
+      <Sidebar
+        activeTab={activeTab}
+        setActiveTab={handleTabChange}
         language={language}
         toggleLanguage={toggleLanguage}
         theme={theme}
