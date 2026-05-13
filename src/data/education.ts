@@ -46,7 +46,7 @@ export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
     workExperiences: [
       {
         id: '1',
-        year: '2021年4月1日起至2024年3月31日',
+        year: '2021.04 - 2024.03',
         title: '宣传管理岗',
         institution: '深圳市公安局交通警察局',
         description: '统筹深圳车管所宣传团队管理与协调工作，负责新媒体平台内容统筹发布、重要文稿编辑、宣传活动策划、日常会议筹办及专题人物采编，对接外部媒体采访、视频拍摄及宣传项目申报，推动数字化宣传工具搭建。',
@@ -54,7 +54,7 @@ export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
       },
       {
         id: '2',
-        year: '2018年7月23日至2021年3月31日',
+        year: '2018.07 - 2021.03',
         title: '新媒体主编',
         institution: '深圳市公安局交通警察局',
         description: '全面负责深圳车管所微信公众号、抖音、微博、门户网站等外宣平台内容编辑、专题策划、粉丝互动与数据分析工作，独立完成海报、宣传栏等各类宣传物料的制作印制，搭建平台内容运营基础体系。',
