@@ -29,7 +29,9 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ initialVisible = false
   const audioRef = useRef<HTMLAudioElement>(null);
   const fadeIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const loadingTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const currentSong = MUSIC_PLAYLIST[currentSongIndex];
+  const [isDragging, setIsDragging] = useState(false);
 
   const [hasInteracted, setHasInteracted] = useState(false);
 
@@ -234,6 +236,63 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ initialVisible = false
     setProgress(newTime);
   };
 
+  // Volume slider handlers
+  const handleVolumeInteraction = (clientX: number) => {
+    if (!sliderRef.current) return;
+    const rect = sliderRef.current.getBoundingClientRect();
+    const x = Math.min(Math.max(0, clientX - rect.left), rect.width);
+    const rawPercentage = x / rect.width;
+    const normalizedVal = rawPercentage;
+    const exponentialVolume = Math.pow(normalizedVal, 2);
+    setVolume(exponentialVolume);
+    if (rawPercentage > 0 && isMuted) {
+      setIsMuted(false);
+    }
+  };
+
+  const handleVolumeMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    handleVolumeInteraction(e.clientX);
+  };
+
+  const handleVolumeTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    handleVolumeInteraction(e.touches[0].clientX);
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isDragging) {
+        handleVolumeInteraction(e.clientX);
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isDragging) {
+        if (e.cancelable) e.preventDefault();
+        handleVolumeInteraction(e.touches[0].clientX);
+      }
+    };
+
+    const handleUp = () => {
+      setIsDragging(false);
+    };
+
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleUp);
+      window.addEventListener('touchmove', handleTouchMove, { passive: false });
+      window.addEventListener('touchend', handleUp);
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleUp);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleUp);
+    };
+  }, [isDragging, isMuted]);
+
   // Format time in seconds to M:SS
   const formatTime = (time: number) => {
     if (isNaN(time)) return "0:00";
@@ -370,15 +429,15 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ initialVisible = false
               </div>
 
               {/* Controls */}
-              <div className="flex flex-col gap-3 relative z-10 mb-5">
+              <div className="flex flex-col gap-4 relative z-10 mb-5">
                 {/* Progress Bar & Time */}
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-2">
                   <div className="flex justify-end items-center px-0.5">
                     <span className="text-[10px] font-bold text-white/90 tabular-nums drop-shadow-md">
                       {formatTime(progress)} / {formatTime(duration)}
                     </span>
                   </div>
-                  <div className="relative group h-4 flex items-center">
+                  <div className="relative group h-6 flex items-center">
                     <input
                       type="range"
                       min="0"
@@ -397,24 +456,40 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ initialVisible = false
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex-1">
-                    <ElasticSlider 
-                      leftIcon={
-                        <button onClick={() => setIsMuted(!isMuted)} className="text-white/70 hover:text-white transition-colors">
-                          {isMuted || volume === 0 ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                        </button>
-                      }
-                      value={(isMuted ? 0 : Math.sqrt(volume)) * 1000}
-                      maxValue={1000}
-                      isStepped
-                      stepSize={10}
-                      onChange={handleVolumeSliderChange}
-                    />
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-2 flex-1">
+                    <button 
+                      onClick={() => setIsMuted(!isMuted)} 
+                      className="text-white/80 hover:text-white transition-colors shrink-0"
+                    >
+                      {isMuted || volume === 0 ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                    </button>
+                    <div 
+                      ref={sliderRef}
+                      className="relative flex-1 h-8 flex items-center cursor-pointer group"
+                      onMouseDown={handleVolumeMouseDown}
+                      onTouchStart={handleVolumeTouchStart}
+                    >
+                      <div className="relative w-full h-full flex items-center">
+                        <div className="absolute w-full h-1.5 bg-white/30 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full w-full bg-white rounded-full origin-left transition-all duration-150"
+                            style={{ transform: `scaleX(${(isMuted ? 0 : Math.sqrt(volume))})` }}
+                          />
+                        </div>
+                        <div 
+                          className="absolute left-0 w-4 h-4 bg-white rounded-full shadow-md pointer-events-none transition-transform duration-150"
+                          style={{ 
+                            left: `${(isMuted ? 0 : Math.sqrt(volume)) * 100}%`,
+                            transform: `translateX(-50%) scale(${isDragging ? 1.2 : 1})`,
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="flex items-center gap-4 shrink-0">
-                    <button onClick={handlePrev} className="text-white/80 hover:text-white transition-colors hover:scale-110 transform drop-shadow-md">
+                  <div className="flex items-center gap-3 shrink-0">
+                    <button onClick={handlePrev} className="text-white/80 hover:text-white transition-colors hover:scale-110 transform">
                       <SkipBack className="w-5 h-5 fill-current" />
                     </button>
                     <button 
@@ -430,7 +505,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ initialVisible = false
                         {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current ml-0.5" />}
                       </div>
                     </button>
-                    <button onClick={handleNext} className="text-white/80 hover:text-white transition-colors hover:scale-110 transform drop-shadow-md">
+                    <button onClick={handleNext} className="text-white/80 hover:text-white transition-colors hover:scale-110 transform">
                       <SkipForward className="w-5 h-5 fill-current" />
                     </button>
                   </div>
