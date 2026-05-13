@@ -38,11 +38,8 @@ const GalleryImage = ({ src, alt, onClick }: { src: string, alt: string, onClick
   );
 };
 
-export type SortType = 'popularity' | 'date' | 'name' | 'category';
-
 export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, externalFilter }) => {
   const [filter, setFilter] = useState<string>('All');
-  const [sortBy, setSortBy] = useState<SortType>('popularity');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [displayProject, setDisplayProject] = useState<Project | null>(null);
   const [isModalRendered, setIsModalRendered] = useState(false);
@@ -105,36 +102,6 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
   const filteredProjects = filter === 'All' 
     ? currentProjects 
     : currentProjects.filter(p => p.category === filter);
-
-  // Calculate effective popularity (base popularity + click count)
-  const getEffectivePopularity = (project: Project) => {
-    const basePopularity = project.popularity || 0;
-    const clicks = clickCounts[project.id] || 0;
-    return basePopularity + clicks * 2; // Each click adds 2 to popularity
-  };
-
-  // Sorting logic
-  const sortedProjects = [...filteredProjects].sort((a, b) => {
-    switch (sortBy) {
-      case 'popularity':
-        return getEffectivePopularity(b) - getEffectivePopularity(a);
-      case 'date':
-        const dateA = a.date || '2000-01-01';
-        const dateB = b.date || '2000-01-01';
-        return new Date(dateB).getTime() - new Date(dateA).getTime();
-      case 'name':
-        const titleA = a.title.toLowerCase();
-        const titleB = b.title.toLowerCase();
-        return titleA.localeCompare(titleB);
-      case 'category':
-        const categoryOrder = [Category.NEW_MEDIA, Category.DESIGN, Category.DEV, Category.PHOTO, Category.VIDEO, Category.AI_MODEL];
-        const indexA = categoryOrder.indexOf(a.category);
-        const indexB = categoryOrder.indexOf(b.category);
-        return indexA - indexB;
-      default:
-        return 0;
-    }
-  });
 
   // Handle Modal Render State for Animation
   useEffect(() => {
@@ -225,41 +192,13 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
         ))}
       </div>
 
-      {/* Sort Bar */}
-      <div className="flex flex-wrap items-center justify-between mb-8 md:mb-12">
-        <span className="text-sm md:text-base font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
-          {language === 'zh' ? '排序方式' : 'Sort by'}
-        </span>
-        <div className="flex gap-2 md:gap-4">
-          {[
-            { value: 'popularity', label: language === 'zh' ? '按热度' : 'Popularity' },
-            { value: 'date', label: language === 'zh' ? '按日期' : 'Date' },
-            { value: 'name', label: language === 'zh' ? '按名称' : 'Name' },
-            { value: 'category', label: language === 'zh' ? '按类别' : 'Category' }
-          ].map((sortOption) => (
-            <button
-              key={sortOption.value}
-              onClick={() => setSortBy(sortOption.value as SortType)}
-              className={`
-                text-sm md:text-base font-bold uppercase tracking-wider transition-all duration-200
-                ${sortBy === sortOption.value
-                  ? 'text-black dark:text-white underline decoration-2 underline-offset-4 decoration-black dark:decoration-white'
-                  : 'text-gray-400 dark:text-gray-600 hover:text-black dark:hover:text-white'}
-              `}
-            >
-              {sortOption.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
-        {sortedProjects.map((project) => (
+        {filteredProjects.map((project) => (
           <div 
             key={project.id} 
             className={`group cursor-pointer flex flex-col h-full transform-gpu ${project.category === Category.DEV ? 'bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-2 transition-all duration-300' : ''}`}
-            onClick={() => handleProjectClick(project)}
+            onClick={() => setSelectedProject(project)}
           >
             
             {project.category === Category.DEV ? (
