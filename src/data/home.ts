@@ -16,24 +16,24 @@ export interface HomeContent {
 export const HOME_DATA: Record<Language, HomeContent> = {
   zh: {
     heroItems: [
-      { text: "摄影摄像", annotation: "（作品积累较多）", category: Category.VIDEO }, // category is kept as VIDEO but UI will split
-      { text: "平面交互", annotation: "（当前主攻，兴趣所在）", category: Category.DESIGN },
-      { text: "应用开发", annotation: "（vibe builder）", category: Category.DEV },
+      { text: "摄影摄像", annotation: "（作品积累较多）", category: Category.VIDEO },
+      { text: "平面交互", annotation: "（有兴趣，有审美）", category: Category.DESIGN },
+      { text: "工具开发", annotation: "（vibe builder）", category: Category.DEV },
       { text: "炒粉炒饭", annotation: "（还在学）", category: null }
     ],
-    intro: "Your personal catchphrase or introduction goes here.",
+    intro: "我渴的时候喝很多水。",
     selectedWorks: "精选作品",
-    years: "[ 20XX — 20XX ]"
+    years: "[ 2021 — 2026 ]"
   },
   en: {
     heroItems: [
       { text: "Photography & Videography", annotation: "(Extensive Portfolio)", category: Category.VIDEO },
-      { text: "Graphic & UI", annotation: "(Main Focus & Passion)", category: Category.DESIGN },
-      { text: "Development", annotation: "(Vibe Coder)", category: Category.DEV },
+      { text: "Graphic & UI", annotation: "(Passion & Aesthetic)", category: Category.DESIGN },
+      { text: "Development", annotation: "(Vibe Builder)", category: Category.DEV },
       { text: "Cooking", annotation: "(Still Learning)", category: null }
     ],
-    intro: "Your personal catchphrase or introduction goes here.",
+    intro: "I drink a lot of water when I'm thirsty.",
     selectedWorks: "Selected Works",
-    years: "[ 20XX — 20XX ]"
+    years: "[ 2021 — 2026 ]"
   }
 };
