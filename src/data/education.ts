@@ -18,7 +18,7 @@ export interface EducationPageContent {
 export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
   zh: {
     title: "教育经历",
-    about: "一名不懂设计的摄影师不是一个好的产品经理。在数媒专业背景下，持续探索影像、视觉设计与工具开发的交叉领域。",
+    about: "从旅游管理到中国语言文学，从传统行业到数字媒体，持续探索跨界融合的可能。以设计思维驱动内容创作，用技术工具赋能创意表达。",
     openToWork: "边学边做 + 开放合作",
     viewHonorsLabel: "查看在校荣誉",
     honorsTitle: "在校荣誉",
@@ -28,10 +28,18 @@ export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
     experiences: [
       {
         id: '1',
-        year: '2021 - 2025',
-        title: '数字媒体技术 / 本科',
-        institution: '华中师范大学',
-        description: '学习数字媒体技术，涵盖影视制作、交互设计、前端开发等方向。在校期间积极参与各类设计竞赛与影像创作。',
+        year: '2013.09 - 2017.06',
+        title: '全日制本科、学士',
+        institution: '福建农林大学',
+        description: '旅游管理专业',
+        type: 'education'
+      },
+      {
+        id: '2',
+        year: '2024.09 - 2025.09',
+        title: '全日制研究生、硕士',
+        institution: '香港都会大学',
+        description: '中国语言文学专业',
         type: 'education'
       }
     ],
@@ -78,7 +86,7 @@ export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
   },
   en: {
     title: "Education",
-    about: "A photographer who doesn't understand design is not a good product manager. With a background in digital media, continuously exploring the intersection of videography, visual design, and tool development.",
+    about: "From Tourism Management to Chinese Language and Literature, from traditional industries to digital media. Continuously exploring the possibilities of cross-disciplinary integration.",
     openToWork: "Learning by Doing + Open for Collaboration",
     viewHonorsLabel: "View Honors & Awards",
     honorsTitle: "Honors & Awards",
@@ -88,10 +96,18 @@ export const EDUCATION_DATA: Record<Language, EducationPageContent> = {
     experiences: [
       {
         id: '1',
-        year: '2021 - 2025',
-        title: 'Digital Media Technology / Bachelor',
-        institution: 'Central China Normal University',
-        description: 'Studied digital media technology, covering film production, interaction design, and front-end development. Actively participated in design competitions and video creation.',
+        year: '2013.09 - 2017.06',
+        title: "Bachelor's Degree",
+        institution: 'Fujian Agriculture and Forestry University',
+        description: 'Tourism Management',
+        type: 'education'
+      },
+      {
+        id: '2',
+        year: '2024.09 - 2025.09',
+        title: "Master's Degree",
+        institution: 'Hong Kong Metropolitan University',
+        description: 'Chinese Language and Literature',
         type: 'education'
       }
     ],
