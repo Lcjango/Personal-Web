@@ -38,7 +38,7 @@ export const CONTACT_DATA: Record<Language, ContactContent> = {
     },
     tooltip: "还是想念武汉，但感觉之后可能也留在广深",
     githubLabel: "GitHub",
-    footerDesign: "Designed & Built by L'Balabala based on the original template by LuN3cy"
+    footerDesign: "Designed & Built by LuN3cy、lcjango"
   },
   en: {
     baseLabel: "BASE",
@@ -56,6 +56,6 @@ export const CONTACT_DATA: Record<Language, ContactContent> = {
     },
     tooltip: "Still miss Wuhan, but likely to stay in Guangzhou-Shenzhen",
     githubLabel: "GitHub",
-    footerDesign: "Designed & Built by L'Balabala based on the original template by LuN3cy"
+    footerDesign: "Designed & Built by LuN3cy、lcjango"
   }
 };
