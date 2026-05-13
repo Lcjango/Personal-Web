@@ -245,10 +245,13 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ language }) =>
               <h2 className="text-5xl md:text-6xl lg:text-8xl font-black mb-6 md:mb-8 leading-none text-black dark:text-white transition-colors duration-300">
                 {content.title}
               </h2>
+              <p className="text-gray-500 dark:text-gray-400 text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 md:mb-12 font-medium transition-colors duration-300 max-w-xl text-justify">
+                {language === 'zh' ? '从传统行业到数字媒体，持续探索跨界融合的可能。' : 'From traditional industries to digital media, exploring cross-disciplinary integration.'}
+              </p>
 
               <div className="flex items-center gap-4 md:gap-6 mt-4 md:mt-8 bg-gray-50 dark:bg-gray-900 lg:bg-transparent lg:dark:bg-transparent p-4 lg:p-0 rounded-2xl lg:rounded-none">
                  <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shrink-0">
-                    <Hourglass className="w-6 h-6 md:w-8 md:h-8 text-black dark:text-white animate-[spin_3s_linear_infinite]" />
+                    <GraduationCap className="w-6 h-6 md:w-8 md:h-8 text-black dark:text-white" />
                  </div>
                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-black dark:text-white transition-colors leading-tight">
                    {content.openToWork}
