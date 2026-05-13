@@ -23,12 +23,11 @@ export const HOME_DATA: Record<Language, HomeContent> = {
   zh: {
     heroItems: [
       { 
-        text: "运营+图文", 
+        text: "运营图文", 
         annotation: "（作品积累较多）", 
         category: Category.NEW_MEDIA,
         parts: [
           { text: "运营", category: Category.NEW_MEDIA },
-          { text: "+", category: null },
           { text: "图文", category: Category.DESIGN }
         ]
       },
@@ -43,12 +42,11 @@ export const HOME_DATA: Record<Language, HomeContent> = {
   en: {
     heroItems: [
       { 
-        text: "Operations+Content", 
+        text: "OperationsContent", 
         annotation: "(Extensive Portfolio)", 
         category: Category.NEW_MEDIA,
         parts: [
           { text: "Operations", category: Category.NEW_MEDIA },
-          { text: "+", category: null },
           { text: "Content", category: Category.DESIGN }
         ]
       },
