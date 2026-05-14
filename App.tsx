@@ -7,6 +7,7 @@ import { PortfolioSection } from './components/PortfolioSection';
 import { ArticleSection } from './components/ArticleSection';
 import { TimelineSection } from './components/TimelineSection';
 import { MusicPlayer } from './components/MusicPlayer';
+import { AdminPage } from './admin/AdminPage';
 import { Mail, MapPin, RotateCcw, MessageSquare, Instagram, Youtube, FileText, Aperture, Github } from 'lucide-react';
 import { NAV_ITEMS } from './src/data/navigation';
 import { CONTACT_DATA } from './src/data/contact';
@@ -23,6 +24,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [language, setLanguage] = useState<Language>('zh');
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [isAdminMode, setIsAdminMode] = useState(false);
   
   const [portfolioCategory, setPortfolioCategory] = useState<string>('All');
   
@@ -69,6 +71,18 @@ function App() {
     }
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  // Admin mode shortcut
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        e.preventDefault();
+        setIsAdminMode(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   // Scroll to top when activeTab changes
   useEffect(() => {
@@ -679,6 +693,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white font-sans selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black overflow-x-hidden transition-colors duration-300">
+      {isAdminMode && <AdminPage onBack={() => setIsAdminMode(false)} />}
       
       <MusicPlayer language={language} />
       {/* Dynamic Navigation */}
